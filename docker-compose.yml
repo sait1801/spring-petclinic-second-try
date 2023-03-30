@@ -1,6 +1,15 @@
 version: "2.2"
 
 services:
+  app:
+    image: openjdk:11-jre-slim
+    command: sh -c "java -jar target/*.jar"
+    ports:
+      - 3000:3000
+    working_dir: /app
+    volumes:
+      - spring-petclinic:/app
+
   mysql:
     image: mysql:8.0
     ports:
